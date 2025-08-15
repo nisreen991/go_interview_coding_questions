@@ -12,6 +12,11 @@ type LeaveCalculator interface {
 	CalculateLeavesLeft() int
 }
 
+type EmployeeOperations interface {
+	SalaryCalculator
+	LeaveCalculator
+}
+
 type Describer interface {
 	Describe() string
 }
@@ -118,6 +123,8 @@ func main() {
 		pf:         500,
 	}
 
+	pemp3 := Permanent{8, 30000, 500, 20, 12}
+
 	con1 := Contract{
 		empId:      4,
 		baseSalary: 2000,
@@ -133,6 +140,9 @@ func main() {
 
 	var l LeaveCalculator = pemp1
 	fmt.Printf("Leaves Remaining for Emp ID: %d is: %d\n", pemp1.empId, l.CalculateLeavesLeft())
+
+	var empOp EmployeeOperations = pemp3
+	fmt.Println(empOp.CalculateLeavesLeft(), empOp.CalculateSalary())
 
 	s := "Nisreen Sabir"
 	assert(s)
