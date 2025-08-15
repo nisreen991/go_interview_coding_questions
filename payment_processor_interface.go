@@ -59,13 +59,13 @@ func assert(i interface{}) {
 }
 
 func findType(i interface{}) {
-	switch i.(type) {
+	switch i := i.(type) {
 	case string:
-		fmt.Printf("Thy name is %s!\n", i.(string))
+		fmt.Printf("Thy name is %s!\n", i)
 	case int:
-		fmt.Printf("I am number: %d\n", i.(int))
+		fmt.Printf("I am number: %d\n", i)
 	case bool:
-		fmt.Printf("Decide who am I: %t\n", i.(bool))
+		fmt.Printf("Decide who am I: %t\n", i)
 	default:
 		fmt.Printf("Unknown type")
 	}
