@@ -58,6 +58,19 @@ func assert(i interface{}) {
 	fmt.Println("Interface s:", s, ok)
 }
 
+func findType(i interface{}) {
+	switch i.(type) {
+	case string:
+		fmt.Printf("Thy name is %s!\n", i.(string))
+	case int:
+		fmt.Printf("I am number: %d\n", i.(int))
+	case bool:
+		fmt.Printf("Decide who am I: %t\n", i.(bool))
+	default:
+		fmt.Printf("Unknown type")
+	}
+}
+
 func main() {
 	pemp1 := Permanent{
 		empId:      1,
@@ -86,4 +99,8 @@ func main() {
 
 	s := "Nisreen Sabir"
 	assert(s)
+
+	findType("Indravadan Sarabhai")
+	findType(900)
+	findType(false)
 }
