@@ -19,12 +19,23 @@ type Contract struct {
 	baseSalary float64
 }
 
+/* Adding FreeLancer type to calculate totalExpense */
+type Freelancer struct {
+	empId       int
+	ratePerHour float64
+	noOfHours   int
+}
+
 func (p Permanent) CalculateSalary() float64 {
 	return p.pf + p.baseSalary
 }
 
 func (c Contract) CalculateSalary() float64 {
 	return c.baseSalary
+}
+
+func (f Freelancer) CalculateSalary() float64 {
+	return f.ratePerHour * float64(f.noOfHours)
 }
 
 /*
@@ -57,6 +68,12 @@ func main() {
 		empId:      4,
 		baseSalary: 2000,
 	}
-	employees := []SalaryCalculator{pemp1, pemp2, con1}
+
+	freelancer := Freelancer{
+		empId:       5,
+		ratePerHour: 8.5,
+		noOfHours:   10,
+	}
+	employees := []SalaryCalculator{pemp1, pemp2, con1, freelancer}
 	totalExpense(employees)
 }
