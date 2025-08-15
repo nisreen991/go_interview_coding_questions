@@ -51,6 +51,13 @@ func totalExpense(s []SalaryCalculator) {
 	fmt.Println("Total Expense of Salary:", expense)
 }
 
+func assert(i interface{}) {
+	//s := i.(int) // this line throws error if in main function concrete type of s is not int
+
+	s, ok := i.(int) // if concrete type is int, ok is true and value is in s, if not the ok is false and value of s if 0
+	fmt.Println("Interface s:", s, ok)
+}
+
 func main() {
 	pemp1 := Permanent{
 		empId:      1,
@@ -76,4 +83,7 @@ func main() {
 	}
 	employees := []SalaryCalculator{pemp1, pemp2, con1, freelancer}
 	totalExpense(employees)
+
+	s := "Nisreen Sabir"
+	assert(s)
 }
