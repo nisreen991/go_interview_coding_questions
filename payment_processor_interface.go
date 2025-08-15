@@ -8,14 +8,20 @@ type SalaryCalculator interface {
 	CalculateSalary() float64
 }
 
+type LeaveCalculator interface {
+	CalculateLeavesLeft() int
+}
+
 type Describer interface {
 	Describe() string
 }
 
 type Permanent struct {
-	empId      int
-	baseSalary float64
-	pf         float64
+	empId       int
+	baseSalary  float64
+	pf          float64
+	totalLeaves int
+	leavesTaken int
 }
 
 type Contract struct {
@@ -50,6 +56,10 @@ func (a *Address) Describe() string { // interface is implemented using pointer 
 
 func (p Permanent) CalculateSalary() float64 { // interface implemented using value  receiver
 	return p.pf + p.baseSalary
+}
+
+func (p Permanent) CalculateLeavesLeft() int {
+	return p.totalLeaves - p.leavesTaken
 }
 
 func (c Contract) CalculateSalary() float64 {
@@ -95,9 +105,11 @@ func findType(i interface{}) {
 
 func main() {
 	pemp1 := Permanent{
-		empId:      1,
-		baseSalary: 6000,
-		pf:         420,
+		empId:       1,
+		baseSalary:  6000,
+		pf:          420,
+		totalLeaves: 40,
+		leavesTaken: 21,
 	}
 
 	pemp2 := Permanent{
@@ -118,6 +130,9 @@ func main() {
 	}
 	employees := []SalaryCalculator{pemp1, pemp2, con1, freelancer}
 	totalExpense(employees)
+
+	var l LeaveCalculator = pemp1
+	fmt.Printf("Leaves Remaining for Emp ID: %d is: %d\n", pemp1.empId, l.CalculateLeavesLeft())
 
 	s := "Nisreen Sabir"
 	assert(s)
