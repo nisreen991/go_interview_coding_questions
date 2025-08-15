@@ -8,6 +8,10 @@ type SalaryCalculator interface {
 	CalculateSalary() float64
 }
 
+type Describer interface {
+	Describe() string
+}
+
 type Permanent struct {
 	empId      int
 	baseSalary float64
@@ -26,7 +30,25 @@ type Freelancer struct {
 	noOfHours   int
 }
 
-func (p Permanent) CalculateSalary() float64 {
+type Person struct {
+	name string
+	age  int
+}
+
+type Address struct {
+	state   string
+	country string
+}
+
+func (p Person) Describe() string { //interface is implemented using value receiver
+	return fmt.Sprintf("Name and age of the Person is: %s and %d", p.name, p.age)
+}
+
+func (a *Address) Describe() string { // interface is implemented using pointer receiver
+	return fmt.Sprintf("Person resides in state: %s in country: %s", a.state, a.country)
+}
+
+func (p Permanent) CalculateSalary() float64 { // interface implemented using value  receiver
 	return p.pf + p.baseSalary
 }
 
@@ -103,4 +125,14 @@ func main() {
 	findType("Indravadan Sarabhai")
 	findType(900)
 	findType(false)
+
+	var d1 Describer
+	p1 := Person{"Ammar Sabir", 16}
+	d1 = p1
+	fmt.Println(d1.Describe())
+
+	var d2 Describer
+	a := Address{"Seattle", "USA"}
+	d2 = &a
+	fmt.Println(d2.Describe())
 }
