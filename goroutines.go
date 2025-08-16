@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	fmt.Println("Writing a simple go routine:")
@@ -25,6 +27,12 @@ func main() {
 
 	oddCh <- true
 	<-dones
+
+	num := 10
+	squareChannel := make(chan int)
+	go numSquares(num, squareChannel)
+	squareResult := <-squareChannel
+	fmt.Println("Square of given number: ", squareResult)
 	fmt.Println("Go routine execution completed!")
 }
 
@@ -73,4 +81,8 @@ func printOdd(evenCh chan bool, oddCh chan bool) {
 		fmt.Println("Odd: ", i)
 		evenCh <- true
 	}
+}
+
+func numSquares(number int, sqCh chan int) {
+	sqCh <- number * number
 }
