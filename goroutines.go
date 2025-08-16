@@ -15,6 +15,16 @@ func main() {
 	go calcCubes(number, cuCh)
 	squares, cubes := <-sqCh, <-cuCh
 	fmt.Printf("Sum of Squares: %d and sum of Cubes: %d\n", squares, cubes)
+
+	evenCh := make(chan bool)
+	oddCh := make(chan bool)
+	dones := make(chan bool)
+
+	go printOdd(evenCh, oddCh)
+	go printEven(evenCh, oddCh, dones)
+
+	oddCh <- true
+	<-dones
 	fmt.Println("Go routine execution completed!")
 }
 
@@ -43,4 +53,24 @@ func calcCubes(number int, cubeOp chan int) {
 		sum += (digit * digit * digit)
 	}
 	cubeOp <- sum
+}
+
+func printEven(evenCh chan bool, oddCh chan bool, done chan bool) {
+	for i := 2; i <= 10; i += 2 {
+		<-evenCh
+		fmt.Println("Even: ", i)
+		if i == 10 {
+			done <- true
+		} else {
+			oddCh <- true
+		}
+	}
+}
+
+func printOdd(evenCh chan bool, oddCh chan bool) {
+	for i := 1; i <= 10; i += 2 {
+		<-oddCh
+		fmt.Println("Odd: ", i)
+		evenCh <- true
+	}
 }
