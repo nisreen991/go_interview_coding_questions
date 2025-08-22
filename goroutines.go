@@ -33,6 +33,17 @@ func main() {
 	go numSquares(num, squareChannel)
 	squareResult := <-squareChannel
 	fmt.Println("Square of given number: ", squareResult)
+
+	idCh := make(chan int, 5)
+
+	for i := 0; i < 5; i++ {
+		go goRoutineWithId(i, idCh)
+	}
+
+	for i := 0; i < 5; i++ {
+		id := <-idCh
+		fmt.Println(id)
+	}
 	fmt.Println("Go routine execution completed!")
 }
 
@@ -85,4 +96,9 @@ func printOdd(evenCh chan bool, oddCh chan bool) {
 
 func numSquares(number int, sqCh chan int) {
 	sqCh <- number * number
+}
+
+func goRoutineWithId(id int, ch chan int) {
+	fmt.Println("GO routine with ID: ", id)
+	ch <- id
 }
