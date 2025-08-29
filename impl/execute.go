@@ -21,4 +21,9 @@ func Execute() {
 	MergeSort(mergearr, 0, n-1)
 	fmt.Println("Array sorted using Merge Sort: ", mergearr)
 
+	quickarr := []int{4, 6, 2, 5, 7, 9, 1, 3}
+	m := len(quickarr)
+	QuickSort(quickarr, 0, m-1)
+	fmt.Println("Array sorted using Quick Sort:", quickarr)
+
 }

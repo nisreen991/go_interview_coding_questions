@@ -1,6 +1,7 @@
 package impl
 
-/* Time Complexity - O(n logn) Space Complexity - O(n) */
+/* Time Complexity - O(n logn) Space Complexity - O(n)
+This algorithm works with Divide & Merge */
 func MergeSort(arr []int, low int, high int) {
 	if low >= high {
 		return
