@@ -12,4 +12,8 @@ func Execute() {
 	BubbleSort(bubblearr)
 	fmt.Println("Array sorted using Bubble Sort: ", bubblearr)
 
+	insertionarr := []int{14, 9, 15, 12, 6, 8, 13}
+	InsertionSort(insertionarr)
+	fmt.Println("Array sorted using Insertion Sort:", insertionarr)
+
 }
