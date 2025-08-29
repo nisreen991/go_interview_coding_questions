@@ -1,5 +1,6 @@
 package impl
 
+/* Time Complexity - O(n logn) Space Complexity - O(n) */
 func MergeSort(arr []int, low int, high int) {
 	if low >= high {
 		return
