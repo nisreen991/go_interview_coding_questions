@@ -8,4 +8,8 @@ func Execute() {
 	SelectionSort(selectionarr)
 	fmt.Println("Array sorted using Selection Sort:", selectionarr)
 
+	bubblearr := []int{13, 46, 24, 53, 20, 9}
+	BubbleSort(bubblearr)
+	fmt.Println("Array sorted using Bubble Sort: ", bubblearr)
+
 }
