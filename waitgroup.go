@@ -11,7 +11,7 @@ func main() {
 	var wg sync.WaitGroup
 	for i := 0; i < no; i++ {
 		wg.Add(1)
-		go process(i, &wg)
+		go process(i, &wg) // If the pointer is not passed, then each Goroutine will have its own copy of the WaitGroup and main will not be notified when they finish executing.
 	}
 	wg.Wait()
 	fmt.Println("All go routines finished executing")
