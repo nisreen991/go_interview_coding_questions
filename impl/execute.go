@@ -20,4 +20,7 @@ func Execute() {
 
 	n := 82
 	fmt.Println("SquareRoot of", n, "is: ", SquareRoot(n))
+
+	m, root := 69, 4
+	fmt.Println(root, "th root of ", m, "is:", NthRoot(root, m))
 }
