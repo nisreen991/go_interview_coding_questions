@@ -30,4 +30,7 @@ func Execute() {
 
 	matrix := [][]int{{0, 0, 1, 1, 1}, {0, 0, 0, 0, 0}, {0, 1, 1, 1, 1}, {0, 0, 0, 0, 0}, {0, 1, 1, 1, 1}}
 	fmt.Println("Row with Max number of ones: ", MaxNumberofOnes(matrix))
+
+	medianMatrix := [][]int{{1, 5, 7, 9, 11}, {2, 3, 4, 5, 10}, {9, 10, 12, 14, 16}}
+	fmt.Println("Median of given matrix is:", MatrixMedian(medianMatrix))
 }
