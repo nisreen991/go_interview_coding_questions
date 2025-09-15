@@ -23,4 +23,11 @@ func Execute() {
 
 	m, root := 69, 4
 	fmt.Println(root, "th root of ", m, "is:", NthRoot(root, m))
+
+	stalls := []int{0, 3, 4, 7, 9, 10}
+	cows := 4
+	fmt.Println("Aggressive Cows:", AggressiveCows(stalls, cows))
+
+	matrix := [][]int{{0, 0, 1, 1, 1}, {0, 0, 0, 0, 0}, {0, 1, 1, 1, 1}, {0, 0, 0, 0, 0}, {0, 1, 1, 1, 1}}
+	fmt.Println("Row with Max number of ones: ", MaxNumberofOnes(matrix))
 }
