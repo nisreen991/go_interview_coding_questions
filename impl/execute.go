@@ -7,12 +7,13 @@ func Execute() {
 	ll := ConvertArrayToLL(arr)
 	fmt.Println("Linked List created from array:")
 	// LL Traversal
-	for node := ll; node != nil; node = node.Next {
-		fmt.Printf("%d -> ", node.Value)
-	}
-	fmt.Println()
-	lengthOfLL := LengthOfLL(ll)
-	fmt.Println("Length of LL: ", lengthOfLL)
+	// for node := ll; node != nil; node = node.Next {
+	// 	fmt.Printf("%d -> ", node.Value)
+	// }
+	// fmt.Println()
+	TraversalInLL(ll)
+
+	fmt.Println("Length of LL: ", LengthOfLL(ll))
 
 	val := 6
 	fmt.Println("Is", val, "present in LL? :", IsNodePresent(ll, val))
@@ -20,22 +21,26 @@ func Execute() {
 	var newLL *Node
 	newLL = InsertNodeAtHead(ll, val)
 	fmt.Println("Insertion at head of LL:")
-	for node := newLL; node != nil; node = node.Next {
-		fmt.Printf("%d -> ", node.Value)
-	}
-	fmt.Println()
+	// for node := newLL; node != nil; node = node.Next {
+	// 	fmt.Printf("%d -> ", node.Value)
+	// }
+	// fmt.Println()
+	TraversalInLL(newLL)
 
 	newLL = InsertNodeAtLast(newLL, val)
 	fmt.Println("Insertion at end of LL:")
-	for node := newLL; node != nil; node = node.Next {
-		fmt.Printf("%d -> ", node.Value)
-	}
-	fmt.Println()
+	// for node := newLL; node != nil; node = node.Next {
+	// 	fmt.Printf("%d -> ", node.Value)
+	// }
+	// fmt.Println()
+	TraversalInLL(newLL)
 
 	pos := 3
 	newLL = InsertNodeAtPosition(newLL, 10, pos)
 	fmt.Println("Insertion at position", pos, "of LL:")
-	for node := newLL; node != nil; node = node.Next {
-		fmt.Printf("%d -> ", node.Value)
-	}
+	// for node := newLL; node != nil; node = node.Next {
+	// 	fmt.Printf("%d -> ", node.Value)
+	// }
+	TraversalInLL(newLL)
+
 }
