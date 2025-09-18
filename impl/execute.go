@@ -36,4 +36,9 @@ func Execute() {
 	fmt.Println("Deletion at end of LL:")
 	TraversalInLL(newLL)
 
+	pos = 2
+	newLL = DeletionAtPosition(newLL, pos)
+	fmt.Println("Deletion at position", pos, "of LL:")
+	TraversalInLL(newLL)
+
 }
