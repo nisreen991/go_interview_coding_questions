@@ -9,4 +9,5 @@ func TraversalInDLL(head *Node) {
 		fmt.Printf("%d-> ", current.Data)
 		current = current.Next
 	}
+	fmt.Println()
 }
