@@ -31,4 +31,11 @@ func Execute() {
 		fmt.Printf("%d -> ", node.Value)
 	}
 	fmt.Println()
+
+	pos := 3
+	newLL = InsertNodeAtPosition(newLL, 10, pos)
+	fmt.Println("Insertion at position", pos, "of LL:")
+	for node := newLL; node != nil; node = node.Next {
+		fmt.Printf("%d -> ", node.Value)
+	}
 }
