@@ -10,6 +10,10 @@ func Execute() {
 	for node := ll; node != nil; node = node.Next {
 		fmt.Printf("%d -> ", node.Value)
 	}
+	fmt.Println()
 	lengthOfLL := LengthOfLL(ll)
 	fmt.Println("Length of LL: ", lengthOfLL)
+
+	val := 6
+	fmt.Println("Is", val, "present in LL? :", IsNodePresent(ll, val))
 }
