@@ -30,4 +30,8 @@ func Execute() {
 	dllHead = InsertionAtPosition(dllHead, 99, 3)
 	fmt.Println("After insertion at position 3:")
 	TraversalInDLL(dllHead)
+
+	dllHead = ReverseDLL(dllHead)
+	fmt.Println("After reversing the DLL:")
+	TraversalInDLL(dllHead)
 }
