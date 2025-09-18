@@ -17,8 +17,16 @@ func Execute() {
 	val := 6
 	fmt.Println("Is", val, "present in LL? :", IsNodePresent(ll, val))
 
-	newLL := InsertNodeAtHead(ll, val)
+	var newLL *Node
+	newLL = InsertNodeAtHead(ll, val)
 	fmt.Println("Insertion at head of LL:")
+	for node := newLL; node != nil; node = node.Next {
+		fmt.Printf("%d -> ", node.Value)
+	}
+	fmt.Println()
+
+	newLL = InsertNodeAtLast(newLL, val)
+	fmt.Println("Insertion at end of LL:")
 	for node := newLL; node != nil; node = node.Next {
 		fmt.Printf("%d -> ", node.Value)
 	}
