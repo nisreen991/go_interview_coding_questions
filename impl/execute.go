@@ -10,4 +10,6 @@ func Execute() {
 	for node := ll; node != nil; node = node.Next {
 		fmt.Printf("%d -> ", node.Value)
 	}
+	lengthOfLL := LengthOfLL(ll)
+	fmt.Println("Length of LL: ", lengthOfLL)
 }
