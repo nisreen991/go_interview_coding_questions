@@ -36,13 +36,22 @@ func Execute() {
 
 	idCh := make(chan int, 5)
 
-	for i := 0; i < 5; i++ {
+	for i := range 5 {
 		go GoRoutineWithId(i, idCh)
 	}
 
-	for i := 0; i < 5; i++ {
+	for range 5 {
 		id := <-idCh
 		fmt.Println(id)
 	}
 	fmt.Println("Go routine execution completed!")
+
+	PrintMessages()
+
+	producerCh := make(chan int)
+	go ProduceNumbers(producerCh)
+
+	for range 10 {
+		fmt.Println("Number: ", <-producerCh)
+	}
 }
