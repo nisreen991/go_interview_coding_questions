@@ -41,9 +41,9 @@ func Execute() {
 	fmt.Println("Deletion at position", pos, "of LL:")
 	TraversalInLL(newLL)
 
-	sortArr := []int{1, 0, 1, 2, 0, 2, 1}
+	sortArr := []int{1, 0, 1, 2, 0, 2, 1, 0, 2}
 	sortLLHead := ConvertArrayToLL(sortArr)
-	sortLLHead = SortLLBruteForce(sortLLHead)
+	sortLLHead = SortLLOptimal(sortLLHead)
 	TraversalInLL(sortLLHead)
 
 }

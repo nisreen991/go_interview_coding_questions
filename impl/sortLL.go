@@ -32,3 +32,42 @@ func SortLLBruteForce(head *Node) *Node {
 	}
 	return head
 }
+
+func SortLLOptimal(head *Node) *Node {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	zeroHead := &Node{}
+	oneHead := &Node{}
+	twoHead := &Node{}
+
+	zero := zeroHead
+	one := oneHead
+	two := twoHead
+
+	temp := head
+
+	for temp != nil {
+		switch temp.Value {
+		case 0:
+			zero.Next = temp
+			zero = zero.Next
+		case 1:
+			one.Next = temp
+			one = one.Next
+		default:
+			two.Next = temp
+			two = two.Next
+		}
+		temp = temp.Next
+	}
+	if oneHead.Next != nil {
+		zero.Next = oneHead.Next
+	} else {
+		zero.Next = twoHead.Next
+	}
+	one.Next = twoHead.Next
+	two.Next = nil
+
+	return zeroHead.Next
+}
