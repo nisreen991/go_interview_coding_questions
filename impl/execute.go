@@ -54,4 +54,6 @@ func Execute() {
 	for val := range producerCh {
 		fmt.Println("Number: ", val)
 	}
+
+	CritialSectionExample()
 }
