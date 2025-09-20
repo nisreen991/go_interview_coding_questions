@@ -51,7 +51,7 @@ func Execute() {
 	producerCh := make(chan int)
 	go ProduceNumbers(producerCh)
 
-	for range 10 {
-		fmt.Println("Number: ", <-producerCh)
+	for val := range producerCh {
+		fmt.Println("Number: ", val)
 	}
 }
