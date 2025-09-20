@@ -56,4 +56,11 @@ func Execute() {
 	}
 
 	CritialSectionExample()
+
+	fibCh := make(chan int)
+	go Fibonacci(10, fibCh)
+
+	for val := range fibCh {
+		fmt.Println(val)
+	}
 }

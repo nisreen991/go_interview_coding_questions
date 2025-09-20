@@ -13,7 +13,6 @@ func CritialSectionExample() {
 		go func() {
 			defer wg.Done()
 			count = count + 1
-
 		}()
 	}
 	wg.Wait()
