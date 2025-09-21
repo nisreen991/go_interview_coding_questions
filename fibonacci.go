@@ -8,6 +8,10 @@ func main() {
 	fibonacci(n)
 	isFib := isFibonacci(n)
 	fmt.Println("Is number present in Fibonacci series: ", isFib)
+	var num int
+	fmt.Println("Pls enter a valid number:")
+	fmt.Scanln(&num)
+	fmt.Println(nextFibonacci(num))
 	fmt.Println("Execution completed")
 }
 
@@ -42,4 +46,12 @@ func isFibonacci(num int) bool {
 		a, b = b, a+b
 	}
 	return false
+}
+
+func nextFibonacci(n int) int {
+	a, b := 0, 1
+	for range n + 1 {
+		a, b = b, a+b
+	}
+	return a
 }
