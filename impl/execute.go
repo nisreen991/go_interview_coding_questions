@@ -34,4 +34,9 @@ func Execute() {
 	dllHead = ReverseDLL(dllHead)
 	fmt.Println("After reversing the DLL:")
 	TraversalInDLL(dllHead)
+
+	dllArr := []int{10, 4, 10, 10, 6, 10}
+	head := ConvertArrayToDLL(dllArr)
+	fmt.Println("Deleting occurences of a key:")
+	TraversalInDLL(DeleteAllOccurences(head, 10))
 }
