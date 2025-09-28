@@ -39,4 +39,12 @@ func Execute() {
 	head := ConvertArrayToDLL(dllArr)
 	fmt.Println("Deleting occurences of a key:")
 	TraversalInDLL(DeleteAllOccurences(head, 10))
+
+	fmt.Println("Tail Node of DLL:")
+	TraversalInDLL(FindTailOfDll(head))
+
+	pairArr := []int{1, 2, 3, 4, 9}
+	pairHead := ConvertArrayToDLL(pairArr)
+	fmt.Println("Pairs with given sum 5:")
+	fmt.Println(FindPairs(pairHead, 5))
 }
