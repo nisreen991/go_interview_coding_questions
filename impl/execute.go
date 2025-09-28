@@ -63,4 +63,6 @@ func Execute() {
 	for val := range fibCh {
 		fmt.Println(val)
 	}
+
+	go workerMain()
 }
