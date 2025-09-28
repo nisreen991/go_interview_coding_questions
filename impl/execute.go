@@ -47,4 +47,9 @@ func Execute() {
 	pairHead := ConvertArrayToDLL(pairArr)
 	fmt.Println("Pairs with given sum 5:")
 	fmt.Println(FindPairs(pairHead, 5))
+
+	duplicateArr := []int{1, 1, 1, 2, 3, 3, 4}
+	duplicateHead := ConvertArrayToDLL(duplicateArr)
+	fmt.Println("Removing Duplicates from DLL:")
+	TraversalInDLL(RemoveDuplicates(duplicateHead))
 }
