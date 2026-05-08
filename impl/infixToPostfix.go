@@ -9,7 +9,7 @@ func InfixToPostfix(exp string) {
 
 	for _, ch := range exp {
 		// If scanned char is operand, add it to the result string
-		if isOperand(ch) {
+		if IsOperand(ch) {
 			result += string(ch)
 		} else if ch == '(' { //If the scanned character is '(', push it to Stack
 			stack.Push(ch)
@@ -36,6 +36,6 @@ func InfixToPostfix(exp string) {
 	fmt.Println("Postfix Expression: ", result)
 }
 
-func isOperand(ch rune) bool {
+func IsOperand(ch rune) bool {
 	return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9')
 }
