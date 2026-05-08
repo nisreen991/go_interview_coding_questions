@@ -18,4 +18,7 @@ func Execute() {
 
 	prefixExpr2 := PostfixToPrefix(postfixExpr)
 	fmt.Println("Prefix Expression: ", prefixExpr2)
+
+	postfixExpr2 := PrefixToPostfix(prefixExpr)
+	fmt.Println("Postfix Expression: ", postfixExpr2)
 }
