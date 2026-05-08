@@ -1,5 +1,7 @@
 package main
 
-func main() {
+import "go_interview_coding_questions/impl"
 
+func main() {
+	impl.Execute()
 }
