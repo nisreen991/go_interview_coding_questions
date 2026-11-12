@@ -65,4 +65,6 @@ func Execute() {
 	}
 
 	go workerMain()
+
+	ThreeGoRoutine()
 }
